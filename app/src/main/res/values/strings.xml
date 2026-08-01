@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">nap511</string>
+    <array name="appBarMenu">
+        <item>文件排序</item>
+        <item>刷新文件</item>
+        <item>视频时间</item>
+    </array>
+    <array name="logScreenAppBarMenu">
+        <item>滚动顶部</item>
+        <item>滚动底部</item>
+        <item>清空日志</item>
+        <item>导出日志</item>
+        <item>刷新日志</item>
+    </array>
+    <array name="offlineFileAppBarMenu">
+        <item>刷新文件</item>
+        <item>复制所有下载链接</item>
+        <item>清空已完成</item>
+        <item>清空已失败</item>
+    </array>
+    <array name="fileMenu">
+        <item>剪切</item>
+        <item>删除</item>
+        <item>重命名</item>
+        <item>文件信息</item>
+        <item>通过aria2下载</item>
+    </array>
+    <array name="recycleMenu">
+        <item>还原</item>
+        <item>删除</item>
+    </array>
+    <array name="offlineFileMenu">
+        <item>复制下载链接</item>
+        <item>删除文件</item>
+        <item>文件信息</item>
+    </array>
+    <array name="fileOrder">
+        <!--        1上，0下-->
+        <item>文件名称⬆️</item>
+        <item>文件名称⬇️</item>
+        <item>文件大小⬆️</item>
+        <item>文件大小⬇️</item>
+        <item>更改时间⬆️</item>
+        <item>更改时间⬇️</item>
+        <item>文件种类⬆️</item>
+        <item>文件种类⬇️</item>
+    </array>
+    <array name="floatingActionButtonPosition">
+        <item>Start</item>
+        <item>Center</item>
+        <item>End</item>
+        <item>EndOverlay</item>
+    </array>
+</resources>
