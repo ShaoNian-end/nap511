@@ -61,6 +61,7 @@ import github.zerorooot.nap511.screen.CookieDialog
 import github.zerorooot.nap511.screen.ExitApp
 import github.zerorooot.nap511.screen.FileScreen
 import github.zerorooot.nap511.screen.LogScreen
+import github.zerorooot.nap511.screen.LoginDialog
 import github.zerorooot.nap511.screen.LoginWebViewScreen
 import github.zerorooot.nap511.screen.MyPhotoScreen
 import github.zerorooot.nap511.screen.OfflineDownloadScreen
@@ -397,11 +398,12 @@ class MainActivity : AppCompatActivity() {
     @Composable
     private fun Login(onClick: (() -> Unit)? = null) {
         var isOpenLoginWebView by remember { mutableStateOf(false) }
+        var isOpenCookieDialog by remember { mutableStateOf(false) }
         val scope = rememberCoroutineScope()
 
+        // 网页登录
         if (isOpenLoginWebView) {
             if (onClick == null) {
-                //首次进入，且选择通过网页登录
                 LoginWebViewScreen {
                     isOpenLoginWebView = false
                 }
@@ -411,25 +413,48 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-
-        CookieDialog {
-            if (it == "通过网页登陆") {
-                isOpenLoginWebView = true
-                return@CookieDialog
+        // Cookie登录
+        if (isOpenCookieDialog) {
+            CookieDialog {
+                if (it == "通过网页登陆") {
+                    isOpenCookieDialog = false
+                    isOpenLoginWebView = true
+                    return@CookieDialog
+                }
+                if (it != null && it != "") {
+                    val replace = it.replace(" ", "").replace("[\r\n]".toRegex(), "")
+                    scope.launch(Dispatchers.IO) {
+                        val pair = App().checkLogin(replace)
+                        if (pair.first) {
+                            ProcessPhoenix.triggerRebirth(applicationContext)
+                        }
+                        App.instance.toast(pair.second)
+                    }
+                } else {
+                    App.instance.toast("请输入cookie")
+                }
             }
-            if (it != null && it != "") {
-                val replace = it.replace(" ", "").replace("[\r\n]".toRegex(), "");
+            return
+        }
+
+        // 账号密码登录（默认）
+        LoginDialog(
+            onAccountLogin = { username, password ->
                 scope.launch(Dispatchers.IO) {
-                    val pair = App().checkLogin(replace)
+                    val pair = App().accountLogin(username, password)
                     if (pair.first) {
-                        ProcessPhoenix.triggerRebirth(applicationContext);
+                        ProcessPhoenix.triggerRebirth(applicationContext)
                     }
                     App.instance.toast(pair.second)
                 }
-            } else {
-                App.instance.toast("请输入cookie")
+            },
+            onCookieLogin = {
+                isOpenCookieDialog = true
+            },
+            onWebLogin = {
+                isOpenLoginWebView = true
             }
-        }
+        )
     }
 
 
