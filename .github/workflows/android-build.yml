@@ -28,7 +28,9 @@ jobs:
 
       - name: Install Android SDK 37 Preview
         run: |
-          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --channel=3 --install "platforms;android-37" "build-tools;37.0.0"
+          $ANDROID_SDK_ROOT/cmdline-tools/16.0/bin/sdkmanager --list --channel=3 2>&1 | grep "platforms;android-3[7-9]"
+          $ANDROID_SDK_ROOT/cmdline-tools/16.0/bin/sdkmanager --list --channel=3 2>&1 | grep "build-tools;3[7-9]"
+          yes | $ANDROID_SDK_ROOT/cmdline-tools/16.0/bin/sdkmanager --channel=3 --install "platforms;android-37" "build-tools;37.0.0"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
