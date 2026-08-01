@@ -27,6 +27,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -216,10 +217,10 @@ fun BaseDetailDialog(
             Spacer(modifier = Modifier.width(12.dp))
             Text(
                 text = title,
-                style = MiuixTheme.typography.titleLarge,
+                style = MiuixTheme.textStyles.title1,
                 maxLines = 2, // 离线任务名字通常较长，放宽到3行
                 overflow = TextOverflow.Ellipsis,
-                lineHeight = MiuixTheme.typography.titleMedium.lineHeight
+                lineHeight = MiuixTheme.textStyles.title3.lineHeight
             )
         }
     }, text = {
@@ -233,7 +234,7 @@ fun BaseDetailDialog(
                 // 区块标题
                 Text(
                     text = section.title,
-                    style = MiuixTheme.typography.labelMedium,
+                    style = MiuixTheme.textStyles.footnote1,
                     color = MiuixTheme.colorScheme.primary,
                     modifier = Modifier.padding(top = if (index == 0) 0.dp else 8.dp)
                 )
@@ -249,8 +250,8 @@ fun BaseDetailDialog(
                         // 左侧：标签 (占 1 份)
                         Text(
                             text = item.label,
-                            style = MiuixTheme.typography.bodyMedium,
-                            color = MiuixTheme.colorScheme.onSurfaceVariant,
+                            style = MiuixTheme.textStyles.body1,
+                            color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(top = 2.dp) // 微调，使其与右侧第一行文本视觉对齐
@@ -263,7 +264,7 @@ fun BaseDetailDialog(
                         ) {
                             Text(
                                 text = item.value.ifEmpty { "-" },
-                                style = MiuixTheme.typography.bodyMedium,
+                                style = MiuixTheme.textStyles.body1,
                                 textAlign = TextAlign.End,
                                 minLines = 1,
                                 color = if (item.onClick != null) {
@@ -757,7 +758,7 @@ fun Aria2Dialog(fileViewModel: FileViewModel, context: String, enter: (String) -
                 Text(text = "取消")
             }
         }, title = {
-            Text(text = "请配置aria2相关内容", style = MiuixTheme.typography.titleMedium)
+            Text(text = "请配置aria2相关内容", style = MiuixTheme.textStyles.title3)
         }, text = {
             Column(Modifier.padding(8.dp)) {
                 OutlinedTextField(
@@ -798,7 +799,7 @@ fun Aria2Dialog(fileViewModel: FileViewModel, context: String, enter: (String) -
                     },
                 )
             }
-        }, shape = MiuixTheme.shapes.medium, properties = DialogProperties(
+        }, shape = RoundedCornerShape(12.dp), properties = DialogProperties(
             //自适应OutlinedTextField高
             usePlatformDefaultWidth = false
         )
@@ -1180,7 +1181,7 @@ private fun BaseDialog(
                 Text(text = dismissButtonText)
             }
         }, title = {
-            Text(text = title, style = MiuixTheme.typography.titleMedium)
+            Text(text = title, style = MiuixTheme.textStyles.title3)
         }, text = {
             OutlinedTextField(
                 value = text,
@@ -1207,7 +1208,7 @@ private fun BaseDialog(
                     text = it
                 },
             )
-        }, shape = MiuixTheme.shapes.medium, properties = DialogProperties(
+        }, shape = RoundedCornerShape(12.dp), properties = DialogProperties(
             //自适应OutlinedTextField高
             usePlatformDefaultWidth = false
         )

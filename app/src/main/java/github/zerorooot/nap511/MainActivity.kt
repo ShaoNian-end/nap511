@@ -365,7 +365,7 @@ class MainActivity : AppCompatActivity() {
             Spacer(Modifier.height(6.dp))
             //用户名
             Text(
-                text = avatarBean.value.userName, style = MiuixTheme.typography.titleMedium
+                text = avatarBean.value.userName, style = MiuixTheme.textStyles.title3
             )
             //uid
             Text(text = App.uid)
@@ -373,13 +373,13 @@ class MainActivity : AppCompatActivity() {
             Text(
                 text = "会员到期时间：${
                     avatarBean.value.expireString
-                }", style = MiuixTheme.typography.titleSmall
+                }", style = MiuixTheme.textStyles.title4
             )
 //            Spacer(Modifier.height(6.dp))
             //已用空间
             Text(
                 text = "总计${remainingSpaceBean.total.sizeFormat}，已用${remainingSpaceBean.use.sizeFormat}，剩余${remainingSpaceBean.remain.sizeFormat}",
-                style = MiuixTheme.typography.titleSmall
+                style = MiuixTheme.textStyles.title4
             )
 //            //进度条
 //            LinearProgressIndicator(

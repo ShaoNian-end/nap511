@@ -2,6 +2,7 @@ package github.zerorooot.nap511.screenitem
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import top.yukonga.miuix.kmp.theme.MiuixTheme
 import androidx.compose.material3.Surface
@@ -37,7 +38,7 @@ fun RecycleCellItem(
     val parentName = recycleBean.parentName
     val imageData = recycleBean.photoThumb.ifEmpty { image }
     Surface(
-        shape = MiuixTheme.shapes.medium,
+        shape = RoundedCornerShape(12.dp),
         tonalElevation = 10.dp,
         modifier = modifier.padding(1.dp)
     ) {
@@ -91,7 +92,7 @@ fun RecycleCellItem(
                         modifier = Modifier.padding(start = 4.dp, top = 4.dp),
                         text = parentName,
                         overflow = TextOverflow.Ellipsis,
-                        style = MiuixTheme.typography.bodySmall,
+                        style = MiuixTheme.textStyles.footnote1,
                         maxLines = 1
                     )
                     Row(
@@ -102,11 +103,11 @@ fun RecycleCellItem(
                     ) {
                         Text(
                             text = size,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                         )
                         Text(
                             text = time,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                             modifier = Modifier.weight(0.7f)
 
                         )

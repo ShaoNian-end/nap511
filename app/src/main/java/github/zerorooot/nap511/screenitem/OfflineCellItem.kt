@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -34,7 +35,7 @@ fun OfflineCellItem(
     val time = offlineTask.timeString
     val percent = offlineTask.percentString
     Surface(
-        shape = MiuixTheme.shapes.medium,
+        shape = RoundedCornerShape(12.dp),
         tonalElevation = 10.dp,
         modifier = Modifier
             .padding(1.dp)
@@ -90,16 +91,16 @@ fun OfflineCellItem(
                     ) {
                         Text(
                             text = size,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                         )
                         Text(
                             text = percent,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                             modifier = Modifier.padding(start = 8.dp)
                         )
                         Text(
                             text = time,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                             modifier = Modifier.padding(start = 8.dp)
                         )
                     }

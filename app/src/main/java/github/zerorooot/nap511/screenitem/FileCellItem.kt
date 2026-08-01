@@ -68,7 +68,7 @@ fun FileCellItem(
     val playLong = fileBean.playLongString
     val imageData = fileBean.photoThumb.ifEmpty { image }
     Surface(
-        shape = MiuixTheme.shapes.medium,
+        shape = RoundedCornerShape(12.dp),
         tonalElevation = 10.dp,
         modifier = modifier
             .padding(1.dp)
@@ -150,7 +150,7 @@ fun FileCellItem(
                     ) {
                         Text(
                             text = size,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
                         )
                         // 时长（作为独立 Badge 标签凸显）
                         if (fileBean.isVideo == 1 || fileBean.fileIco == R.drawable.mp3) {
@@ -164,14 +164,14 @@ fun FileCellItem(
                             ) {
                                 Text(
                                     text = playLong,
-                                    style = MiuixTheme.typography.labelSmall,
+                                    style = MiuixTheme.textStyles.footnote2,
                                     color = MiuixTheme.colorScheme.onSecondaryContainer
                                 )
                             }
                         }
                         Text(
                             text = time,
-                            style = MiuixTheme.typography.bodyMedium,
+                            style = MiuixTheme.textStyles.body1,
 //                            modifier = Modifier.fillMaxSize(),
                             modifier = Modifier.weight(0.7f)
 //                                .padding(4.dp)

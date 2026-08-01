@@ -104,7 +104,7 @@ fun LogScreen() {
 
             Text(
                 text = log,
-                style = MiuixTheme.typography.bodyLarge
+                style = MiuixTheme.textStyles.body2
             )
         }
     }

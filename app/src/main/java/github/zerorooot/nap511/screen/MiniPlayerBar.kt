@@ -149,14 +149,14 @@ fun MiniPlayerBarContent(
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = fileBean.name,
-                        style = MiuixTheme.typography.bodyMedium,
+                        style = MiuixTheme.textStyles.body1,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
                     Text(
                         text = if (isLoading) "正在加载音频..." else positionText,
-                        style = MiuixTheme.typography.bodySmall,
-                        color = MiuixTheme.colorScheme.onSurfaceVariant
+                        style = MiuixTheme.textStyles.footnote1,
+                        color = MiuixTheme.colorScheme.onSurfaceVariantSummary
                     )
                 }
 
