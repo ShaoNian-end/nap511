@@ -2,9 +2,9 @@ package github.zerorooot.nap511.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import top.yukonga.miuix.kmp.ui.theme.ColorSchemeMode
-import top.yukonga.miuix.kmp.ui.theme.MiuixTheme
-import top.yukonga.miuix.kmp.ui.theme.ThemeController
+import top.yukonga.miuix.kmp.theme.ColorSchemeMode
+import top.yukonga.miuix.kmp.theme.MiuixTheme
+import top.yukonga.miuix.kmp.theme.ThemeController
 
 @Composable
 fun Nap511Theme(

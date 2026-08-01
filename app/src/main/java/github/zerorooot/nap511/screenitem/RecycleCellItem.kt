@@ -3,7 +3,7 @@ package github.zerorooot.nap511.screenitem
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
-import top.yukonga.miuix.kmp.ui.theme.MiuixTheme
+import top.yukonga.miuix.kmp.theme.MiuixTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
